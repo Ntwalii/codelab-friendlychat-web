@@ -1,10 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-
+import { GoogleAuthProvider } from 'firebase/auth';
 import {
   Auth,
   authState,
   signInWithPopup,
-  GoogleAuthProvider,
   signOut,
   user,
   getAuth,
@@ -53,8 +52,7 @@ export class ChatService {
   LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif?a';
 
   // Observable user
-  user$ = user(this.auth);
-
+  user$ = user(this.auth as import("@firebase/auth/dist/auth-public").Auth);
   // Login Friendly Chat.
 // Signs-in Friendly Chat.
 login() {
